@@ -1,0 +1,11 @@
+export const recipeContainer = document.querySelector(".recipe");
+export const filterWrapperulApp = document.querySelector("#appliance");
+export const filterWrapperulUst = document.querySelector("#ustensils");
+export const filterWrapperulIng = document.querySelector("#ingredients");
+export const totalRecipes = document.querySelector(".filter-right p");
+export const selectedFilters = document.querySelector(".selectedFilters")
+export const selectedFiltersUl = document.querySelector(".selectedFilters ul")
+export const inputs = document.querySelectorAll("input.search");
+export const select = document.querySelector(".filter");
+export const searchInput = document.querySelector("#search-input");
+export const searchBtn = document.querySelector("#logo-research > span")
