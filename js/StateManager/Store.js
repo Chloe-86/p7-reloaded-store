@@ -32,7 +32,7 @@ const Store = (() => {
         state = { ...state, index: Math.max(0, state.index - 1) };
         break;
       case "SET_RECIPES":
-        state = { ...state, recipes: action.payload };
+        state = { ...state, recipes: Object.freeze([...action.payload]) };
         break;
       case "SET_RECIPES_SELECT":
         state = { ...state, selectRecipes: action.payload };
@@ -45,7 +45,6 @@ const Store = (() => {
           ...state,
           arrayFilter: [...state.arrayFilter, action.payload],
         };
-
         break;
       case "SET_ARRAYFILTER_FS":
         state = { ...state, arrayFilter_fs: action.payload };
@@ -59,15 +58,7 @@ const Store = (() => {
           ...state,
           arrayFilter: state.arrayFilter.filter((filter) => filter !== action.payload),
         };
-        console.log(state)
         break;
-      // case "REMOVE_ARRAYFILTER_FS":
-      //   state = {
-      //     ...state,
-      //     arrayFilter_fs: state.arrayFilter_fs.filter((filter) => filter !== action.payload),
-      //   };
-      //   console.log(state);
-      //   break;
       case "SET_INGREDIENTS":
         state = { ...state, ingredients: action.payload };
         break;

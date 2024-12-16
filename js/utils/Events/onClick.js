@@ -1,4 +1,3 @@
-
 import { handleFilterClick } from "./handleFilterClick.js";
 import Store from "../../StateManager/Store.js";
 import { displayRecipes } from "../../Display/displayRecipes.js";
@@ -23,17 +22,10 @@ import { filterConditions } from "../../FilterLogic/filterConditions.js";
 import { handleErrorOrDisplay } from "../../FilterLogic/filterLogic.js";
 import { getFormattedState } from "../states.js";
 
+
 export function onClick() {
   document.addEventListener("click", (e) => {
-    
-       const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
-       console.log({
-         arrayFilter_fs,
-         arrayFilter,
-         filteredRecipes,
-         selectRecipes,
-         recipes,
-       });
+    const {recipes} = getFormattedState();
     //gestion des ajouts du select
     if (select) {
       const target = e.target.closest("LI");
@@ -91,21 +83,22 @@ export function onClick() {
       selectEltLi.forEach((li) => {
         if (li.getAttribute("data-id") === dataIdEvent) {
           li.remove();
-
-            const updateArrayFilter = li.textContent;
-            Store.dispatch({ type: "REMOVE_ARRAYFILTER", payload: updateArrayFilter });
-            selectedFilters.classList.remove("active");
+          const updateArrayFilter = li.textContent;
+          Store.dispatch({ type: "REMOVE_ARRAYFILTER", payload: updateArrayFilter });
+          Store.dispatch({type: 'SET_RECIPES_SELECT', payload: recipes})
+          selectedFilters.classList.remove("active");
         }
       });
+
       if (selectedFiltersUl.textContent === "" && selectedFiltersUl.classList.contains("active")) {
         selectedFiltersUl.classList.remove("active");
       }
     }
-
+   //cliques sur l ul des filtres selctionnés
     if (selectedFilters) {
       const filteredRecipes = filterGeneral("click");
-      console.log(filteredRecipes);
       handleErrorOrDisplay(filteredRecipes, "SET_RECIPES_SELECT", null, "selectError");
+      Store.dispatch({type: 'SET_RECIPES_SELECT', payload: filteredRecipes})
     }
   });
 }

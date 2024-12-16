@@ -26,10 +26,6 @@ export function filterConditions(type) {
       // console.log("Case 3: Filtrage basé uniquement sur l'input");
       result = filteredRecipes;
       break;
-    case arrayFilter_fs_temp.length > 0:
-      // console.log("Case 3: Filtrage basé uniquement sur l'input");
-      result = filteredRecipes;
-      break;
 
     case arrayFilter.length > 0 && arrayFilter_fs.length > 0:
       // console.log("Case 4: Filtrage basé sur les 2");
@@ -39,6 +35,7 @@ export function filterConditions(type) {
         result = filteredRecipes;
       }
       break;
+
     case arrayFilter_fs.length > 0 && arrayFilter === 0:
       // console.log("select vide");
       result = filteredRecipes;
@@ -46,7 +43,6 @@ export function filterConditions(type) {
 
     default:
       // console.log("Case Default: Toutes les recettes par défaut");
-      // console.log(recipes)
       result = recipes;
       break;
   }

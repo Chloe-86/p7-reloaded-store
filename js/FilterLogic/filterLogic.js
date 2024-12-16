@@ -22,64 +22,56 @@ import { getFormattedState } from "../utils/states.js";
  * @param {string|null} [typeDispatch] - le type d'execution de dispatch effectué
  * @returns {void}
  *
- * @example pour un cas de filtrage select
- * handleErrorOrDisplay({
- *   outputRecipes: [],
- *   query: "poulet",
- *   error: "Aucune recette trouvée pour 'poulet'.",
- *   total: 100,
- *   container: document.getElementById("recipes"),
- *   type: "select",
- * });
  */
 export function handleErrorOrDisplay(
   outputRecipes = [],
-  typeDispatch= null,
+  typeDispatch = null,
   query = null,
   error = null,
   total = totalRecipes,
   container = recipeContainer
 ) {
   if (outputRecipes.length === 0) {
-
     // Si aucune recette n'est trouvée
     errorMessage(error, container, query); // Afficher un message d'erreur
-    Store.dispatch({ type: 'SET_ERROR', payload: error });
+    Store.dispatch({ type: "SET_ERROR", payload: error });
     // Passer une liste vide à filterRenderTotal
     filterRenderTotal([], total);
   } else {
-
     displayRecipes(outputRecipes);
     filterRenderTotal(outputRecipes, total);
-    Store.dispatch({ type: 'SET_ERROR', payload: '' });
+
+    Store.dispatch({ type: "SET_ERROR", payload: "" });
   }
 }
 // ------------------------------------------------FUNCTION GENERAL -------------------------------------
 /**
- * gERE LE FILTRAGE EN FONCTION DES TYPES D'EVENTS
+ * Filtre les recettes en fonction des types d'événements et de la requête donnée.
  *
- * @param {string|null} [type=null] - Le type event select ou input .
+ * @param {string|null} [type=null] - Le type d'événement, soit "click" pour les sélections, soit "input" pour la saisie.
+ * @param {string|null} [query=null] - La requête saisie par l'utilisateur pour filtrer les recettes (optionnel).
+ * @returns {Array} - Un tableau des recettes filtrées en fonction du type d'événement et de la requête.
  */
 export function filterGeneral(type = null, query = null) {
   let outputRecipes = [];
-  let { arrayFilter } = getFormattedState();
+  let { arrayFilter, recipes } = getFormattedState();
 
   if (type === "click") {
     const enterRecipes = filterConditions("select");
-    // console.log(enterRecipes)
+
     outputRecipes = filterSelected(enterRecipes, arrayFilter);
   }
 
   if (type === "input") {
     let enterRecipes = filterConditions("input");
-    // console.log(enterRecipes)
-    if(query){
-      outputRecipes = compareInput(enterRecipes, query);
-    }else{
-      outputRecipes =enterRecipes;
+
+    if (query) {
+      outputRecipes = compareInput(recipes, query);
+    } else {
+      outputRecipes = enterRecipes;
     }
   }
-//  console.log(outputRecipes)
+
   return outputRecipes;
 }
 
