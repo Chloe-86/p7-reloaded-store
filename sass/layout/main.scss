@@ -1,5 +1,13 @@
 main{
 
     background: $color-background!important;
-    padding: 20px 100px 201px;
+    // padding: 20px 100px 201px;
+}
+
+@media screen and (min-width:1400px) {
+    main{
+        padding: 20px 100px 201px!important;
+    }
+
+    
 }

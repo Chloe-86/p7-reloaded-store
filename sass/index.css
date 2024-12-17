@@ -53,10 +53,6 @@ header .wrapper-header {
   height: 100%;
 }
 
-main {
-  background: #EDEDED !important;
-}
-
 @media screen and (min-width: 1400px) {
   main {
     padding: 20px 100px 201px !important;
@@ -252,7 +248,8 @@ main {
   border-radius: 21px;
   background: #fff;
   box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-  height: 760px;
+  overflow: hidden;
+  align-items: stretch;
 }
 .card .card-wrapper {
   margin: 32px 25px 61px;
@@ -277,8 +274,7 @@ main {
   line-height: normal;
   margin-bottom: 32px;
   height: 76px;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  overflow: hidden;
 }
 .card .d-flex h4 {
   color: var(--Black, #1b1b1b);
@@ -299,7 +295,8 @@ main {
 .card img.card-img-top {
   border-radius: 21px 21px 0 0;
   max-height: 253px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card {
@@ -310,8 +307,8 @@ main {
 }
 .card .ingredients {
   height: 170px;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .time {
@@ -348,6 +345,9 @@ main {
 }
 
 /* Masquer le placeholder au clic */
+input:focus::-moz-placeholder {
+  color: transparent;
+}
 input:focus::placeholder {
   color: transparent;
 }
@@ -380,6 +380,4 @@ header h2 {
 header .wrapper-header {
   max-width: 890px;
   height: 100%;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=index.css.map */

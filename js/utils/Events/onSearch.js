@@ -23,8 +23,16 @@ const error = Store.getState().error;
 export function onSearch(input, dataSet = null, filterWrapper = null) {
   input.addEventListener("input", (e) => {
     const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
-    const query = e.target.value.trim().toLowerCase();
-    inputSanitize(query);
+    console.log({
+      arrayFilter_fs,
+      arrayFilter,
+      filteredRecipes,
+      selectRecipes,
+      recipes,
+    });
+    
+    const inputValue = e.target.value;
+    const query = inputSanitize(inputValue);
     const inputType = input.getAttribute("data-type");
 
     switch (inputType) {
@@ -92,7 +100,7 @@ export async function onSearchMainResearch(input, query) {
      //ca c est pour vider arrayFilter_fs
      Store.dispatch({ type: "SET_ARRAYFILTER_FS", payload: "" });
   }
-
+  
   // on verifie que la query comporte 3 caracteres ou plus avant de déclencher la recherche de comparaison
   if (query.length >= 3) {
     const filteredRecipes = filterGeneral("input", query);
@@ -101,6 +109,7 @@ export async function onSearchMainResearch(input, query) {
     Store.dispatch({ type: "SET_FILTERED_RECIPES_MAIN_SEARCH", payload: filteredRecipes });
  
   }
+ 
 }
 
 

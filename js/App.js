@@ -6,7 +6,7 @@ import { displayRecipes } from "./Display/displayRecipes.js";
 import { filterRenderTotal } from "./FilterRender/filterRenderTotal.js";
 import { onClick } from "./utils/Events/onClick.js";
 import { onSearch } from "./utils/Events/onSearch.js";
-
+import { getFormattedState } from "./utils/states.js";
 
 
 export async function App() {
@@ -37,7 +37,8 @@ export async function App() {
     onSearch(inputs[1], Store.getState().appliances, filterWrapperulApp);
     onSearch(inputs[2], Store.getState().ustensils, filterWrapperulUst);
     onSearch(searchInput);
-   
+    
+
   } catch (error) {
     // Si invalide affiche le message d'erreur fourni du service d'appel
     console.log(error);

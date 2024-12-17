@@ -14,7 +14,7 @@ function createWrapper() {
  */
 function createDivCol() {
   const div = document.createElement("div");
-  div.classList.add("col-lg-4", "mb-5");
+  div.classList.add("col-lg-4","col-md-6", "mb-5");
   return div;
 }
 
@@ -144,6 +144,5 @@ export function FactoryCard(recipeData, recipeContainer) {
 
   article.appendChild(wrapper);
   div.appendChild(article);
-  
   recipeContainer.appendChild(div);
 }

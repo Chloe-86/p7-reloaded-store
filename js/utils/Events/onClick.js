@@ -25,7 +25,18 @@ import { getFormattedState } from "../states.js";
 
 export function onClick() {
   document.addEventListener("click", (e) => {
-    const {recipes} = getFormattedState();
+    const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
+    console.log({
+      arrayFilter_fs,
+      arrayFilter,
+      filteredRecipes,
+      selectRecipes,
+      recipes,
+    });
+
+
+
+    // const {recipes} = getFormattedState();
     //gestion des ajouts du select
     if (select) {
       const target = e.target.closest("LI");

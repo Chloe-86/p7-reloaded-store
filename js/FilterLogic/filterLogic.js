@@ -64,9 +64,9 @@ export function filterGeneral(type = null, query = null) {
 
   if (type === "input") {
     let enterRecipes = filterConditions("input");
-
+ console.log(enterRecipes)
     if (query) {
-      outputRecipes = compareInput(recipes, query);
+      outputRecipes = compareInput(enterRecipes, query);
     } else {
       outputRecipes = enterRecipes;
     }

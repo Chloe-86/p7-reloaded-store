@@ -1,0 +1,2 @@
+attention le filtre sur l input prends le filtrage du dernier tableau cela pose un soucis lorsque tu efface les inputs car il prends le dernier tableau d entree qui est 3 recettes si tu fais tarte puis tarte au tu as 5 recettes puis 3 recettess
+//idee se base seulement sur recipes ne pas changer 

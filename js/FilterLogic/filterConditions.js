@@ -8,9 +8,12 @@ export function filterConditions(type) {
   // Utilisation d'un switch pour gérer les différents cas de filtrage
   switch (true) {
    
-    case arrayFilter_fs.length > 0:
+    case arrayFilter_fs.length > 0 && arrayFilter.length === 0:
       // console.log("input vide");
-      result = filteredRecipes;
+      //ici si je mets result ca passe le resultat 
+      result = recipes;
+      //si je mets filteredrecipes ici je n ai pas acces à l"echap
+      // result = filteredRecipes;
       break;
     case arrayFilter_fs.length === 0 && arrayFilter.length === 0:
       // console.log("Case 1: Aucun filtre actif stocké");
@@ -30,7 +33,9 @@ export function filterConditions(type) {
     case arrayFilter.length > 0 && arrayFilter_fs.length > 0:
       // console.log("Case 4: Filtrage basé sur les 2");
       if (type === "input") {
+
         result = selectRecipes;
+        console.log(result)
       } else if (type === "select") {
         result = filteredRecipes;
       }

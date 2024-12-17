@@ -23,8 +23,8 @@ export function findArPa(target) {
   }
 
 
-export function inputSanitize(input) {
-  return input
+export function inputSanitize(query) {
+  return query
     .replace(/['"<>\\]/g, match => ({
       "'": "\\'",
       '"': '\\"',
