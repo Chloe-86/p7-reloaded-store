@@ -1,15 +1,15 @@
 header {
   background-image: url(../../../assets/images/background-header.png);
-  height:clamp(400px, 15vh, 960px);
+  height: clamp(400px, 15vh, 960px);
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
 
-  h1{
-  position: absolute;
-  top: 2vw;
-  left: 4vh;
+  h1 {
+    position: absolute;
+    top: 2vw;
+    left: 4vh;
   }
   h2 {
     color: $color-yellow;
@@ -19,9 +19,8 @@ header {
     line-height: normal;
     text-transform: uppercase;
   }
-.wrapper-header{
-  max-width: 890px;
-  height: 100%;
-}
-
+  .wrapper-header {
+    max-width: 890px;
+    height: 100%;
+  }
 }

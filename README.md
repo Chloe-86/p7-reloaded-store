@@ -20,16 +20,18 @@
 
 ## Installation
 
-1. Clone le repository :
-   git clone https://github.com/ton-compte/ton-projet.git
+1. Cloner le repository :
+   git clone https://github.com/Chloe-86/p7-reloaded-store.git
 
-2. Accède au répertoire du projet :
-   cd ton-projet
+2. Accèder au répertoire du projet :
+   cd p7-reloaded-store
 
-3. Installe l'extension live server :
-   appuie sur go live en bas à droite
+3. Assurez-vous d’avoir installé l’extension Live Server dans Visual Studio Code:
+   appuyer sur "Go Live" (bouton en bas à droite de VS Code) pour lancer le serveur.
 
-4. Normalement l'extension charge le navigateur automatiquement si ca ne fonctionne pas, récupere l'adresse de l'etape 2 usage.
+4. Si tout fonctionne correctement, le navigateur devrait s’ouvrir automatiquement avec le projet.
+Si ce n’est pas le cas :
+Copier l’adresse indiquée par Live Server (par exemple, http://127.0.0.1:5501) dans ton navigateur.
 
 
 ## Usage
@@ -55,6 +57,7 @@ Pour déboguer rapidement l'état de l'application, il y a la fonction `debugSta
 ## Technologies utilisées
 
 - **JavaScript (ES6+)**
+- **HTML pour le balisage 
 - **CSS / SCSS** pour le style
 
 

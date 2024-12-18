@@ -4,9 +4,8 @@
   box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
   height: 760px;
 
-  .card-wrapper{
+  .card-wrapper {
     margin: 32px 25px 61px;
- 
   }
   .card-title {
     color: var(--Grey, #7a7a7a);
@@ -56,21 +55,19 @@
   }
 }
 
-
-.card{
+.card {
   position: relative;
   .d-flex .row {
     width: 150px; /* Espace entre les colonnes */
-   }
-   .ingredients {
+  }
+  .ingredients {
     height: 170px;
     overflow-y: scroll;
     scrollbar-width: none;
-
-   }
+  }
 }
 
-.time{
+.time {
   position: absolute;
   right: 20px;
   top: 21px;

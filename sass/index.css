@@ -15,10 +15,11 @@ body {
   background: #fff;
   min-height: 100vh;
   font-family: Anton;
-  color: #1B1B1B;
+  color: #1b1b1b;
 }
 
-.main-container, main {
+.main-container,
+main {
   max-width: 1440px !important;
   margin: 0 auto;
 }
@@ -54,7 +55,7 @@ header .wrapper-header {
 }
 
 main {
-  background: #EDEDED !important;
+  background: #ededed !important;
 }
 
 @media screen and (min-width: 1400px) {
@@ -145,7 +146,7 @@ main {
 }
 
 .bg-dark {
-  background-color: #1B1B1B;
+  background-color: #1b1b1b;
 }
 
 .dropdown-menu.show {
@@ -169,7 +170,7 @@ main {
 }
 
 .filter {
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -191,7 +192,7 @@ main {
   margin-right: 16px;
   height: 36px;
   width: 163px;
-  border-color: #C6C6C6;
+  border-color: #c6c6c6;
   outline: none;
 }
 .filter-left ul {
@@ -238,7 +239,8 @@ main {
   line-height: normal;
 }
 
-.search::-webkit-search-cancel-button, .form-control::-webkit-search-cancel-button {
+.search::-webkit-search-cancel-button,
+.form-control::-webkit-search-cancel-button {
   -webkit-appearance: none;
   position: absolute;
   right: 15px;
@@ -269,7 +271,7 @@ main {
   margin-bottom: 15px;
 }
 .card .card-text {
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-family: Manrope;
   font-size: 14px;
   font-style: normal;
@@ -300,7 +302,7 @@ main {
   border-radius: 21px 21px 0 0;
   max-height: 253px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .card {
@@ -332,7 +334,7 @@ main {
   margin: 0 auto;
 }
 .custom-search-bar .input-group-text {
-  background: #1B1B1B !important;
+  background: #1b1b1b !important;
 }
 .custom-search-bar #logo-research > span {
   border-radius: 10px !important;
@@ -340,7 +342,7 @@ main {
 }
 
 .form-control[placeholder] {
-  color: #C6C6C6;
+  color: #c6c6c6;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -384,4 +386,4 @@ header h2 {
 header .wrapper-header {
   max-width: 890px;
   height: 100%;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

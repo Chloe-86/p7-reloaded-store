@@ -5,12 +5,12 @@
 .selected-filter {
   display: none;
 }
-.li-item{
+.li-item {
   background-color: $color-yellow;
   padding-bottom: 30px;
   position: relative;
-  span img{
-    cursor:pointer;
+  span img {
+    cursor: pointer;
     position: absolute;
     right: 10px;
   }
@@ -51,7 +51,7 @@
   font-weight: 400;
   line-height: normal;
   margin: 10px;
-  span{
+  span {
     cursor: pointer;
   }
 }
@@ -123,11 +123,10 @@
     border-color: $color-lightgrey;
     outline: none;
   }
-  ul{
+  ul {
     padding-left: unset;
   }
-  .filter-list-item{
-    
+  .filter-list-item {
     overflow-y: scroll;
     height: 260px;
     scrollbar-width: none;
@@ -146,8 +145,8 @@
   .dropdown-menu {
     border-radius: 11px;
     position: relative;
-   
-    .filterListItems{
+
+    .filterListItems {
       height: 100%;
       overflow-y: auto;
     }
@@ -171,9 +170,8 @@
   line-height: normal;
 }
 
-
-//test
-.search::-webkit-search-cancel-button, .form-control::-webkit-search-cancel-button{
+.search::-webkit-search-cancel-button,
+.form-control::-webkit-search-cancel-button {
   -webkit-appearance: none;
   position: absolute;
   right: 15px;
