@@ -20,7 +20,6 @@ import { getFormattedState } from "../utils/states.js";
  * @param {string|null} [type=null] - Le type event select ou input .
  * @param {string|null} [typeOf=null] - Le type de sortie attendu, correspondant au type de résultat des filtres.
  * @param {string|null} [typeDispatch] - le type d'execution de dispatch effectué
- * @returns {void}
  *
  */
 export function handleErrorOrDisplay(
@@ -40,7 +39,6 @@ export function handleErrorOrDisplay(
   } else {
     displayRecipes(outputRecipes);
     filterRenderTotal(outputRecipes, total);
-
     Store.dispatch({ type: "SET_ERROR", payload: "" });
   }
 }
@@ -80,10 +78,9 @@ export function filterGeneral(type = null, query = null) {
  * Filtre les recettes en fonction des filtres sélectionnés.
  * Cette fonction vérifie si chaque filtre (ingrédients, ustensiles, ou appareil) est présent dans chaque recette et met à jour l'affichage en conséquence.
  * Si aucune recette ne correspond aux filtres, un message d'erreur est affiché.
- * Si des recettes sont filtrées, elles sont réinitialisées et affichées dans le conteneur des recettes.
- *
- * @param {Array<Object>} data - Tableau des recettes à filtrer. Chaque recette doit avoir des propriétés comme `ingredients`, `ustensils` et `appliance`.
- * @param {Array<string>} dataToFilter - Tableau des filtres sélectionnés. Chaque élément correspond à un filtre (ingrédient, ustensil ou appareil) que l'utilisateur a sélectionné.
+ * 
+ * @param {Array<Object>} data - Tableau des recettes à filtrer. 
+ * @param {Array<string>} dataToFilter - Tableau des filtres sélectionnés. 
  *
  */
 export function filterSelected(data, dataToFilter) {
@@ -102,6 +99,11 @@ export function filterSelected(data, dataToFilter) {
 }
 
 //INPUT A L INTERIEUR DES SELECTS
+/**
+ * Compare le terme de recherche avec le set de données en question.
+ * @param {Array<Object>} dataSet -le tableau a filtrer
+ * @param {string} query - Le terme de recherche de l'utilisateur.
+ */
 //logique de filtrage interne compare la query avec tableau d' ingredients ou ustensils ou appareil(appliances)
 export function selectFilterSearchLogic(dataSet, query) {
   const filteredData = dataSet.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
@@ -111,9 +113,9 @@ export function selectFilterSearchLogic(dataSet, query) {
 // --------------------------------------------FILTER INPUT MAIN RESEARCH LOGIC-------------------------------------------------------//
 /**
  * Compare le terme de recherche avec le nom, la description et les ingrédients d'une recette.
+ * @param {Array<Object>} data -le tableau d'objets a filtrer
  * @param {Object} recipe - L'objet recette à comparer.
  * @param {string} query - Le terme de recherche de l'utilisateur.
- * @returns {boolean} - True si une correspondance est trouvée dans le nom, la description ou les ingrédients.
  */
 export function compareInput(data, query) {
   const filteredRecipes = data.filter((recipe) => compareJSON(recipe, query));

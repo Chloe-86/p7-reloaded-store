@@ -9,14 +9,7 @@ export function onClick() {
   document.addEventListener("click", (e) => {
     Store.dispatch({ type: "SET_SEARCH_INPUT_STATUS", payload: false });
     const {recipes} = getFormattedState();
-    // console.log({
-    //   arrayFilter_fs,
-    //   arrayFilter,
-    //   filteredRecipes,
-    //   selectRecipes,
-    //   recipes,
-    //  });
-    //  const {recipes} = getFormattedState();
+   
     //gestion des ajouts du select
     if (select) {
       const target = e.target.closest("LI");

@@ -18,15 +18,6 @@ import { filterGeneral } from "../../FilterLogic/filterLogic.js";
 export function onSearch(input, dataSet = null, filterWrapper = null) {
   input.addEventListener("input", (e) => {
     Store.dispatch({ type: "SET_SEARCH_INPUT_STATUS", payload: true});
-    // const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
-    // console.log({
-    //   arrayFilter_fs,
-    //   arrayFilter,
-    //   filteredRecipes,
-    //   selectRecipes,
-    //   recipes,
-    // });
-    
     const inputValue = e.target.value;
     const query = inputSanitize(inputValue);
     const inputType = input.getAttribute("data-type");

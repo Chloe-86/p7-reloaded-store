@@ -13,3 +13,14 @@ export function getFormattedState() {
         searchInputStatus : state.searchInputStatut
     };
 }
+
+export function debugState(){
+    const { arrayFilter_fs, arrayFilter, filteredRecipes, selectRecipes, recipes } = getFormattedState();
+    console.log({
+        arrayFilter_fs,
+        arrayFilter,
+        filteredRecipes,
+        selectRecipes,
+        recipes,
+      });
+}
