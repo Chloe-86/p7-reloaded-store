@@ -111,27 +111,47 @@ export function selectFilterSearchLogic(dataSet, query) {
 }
 
 // --------------------------------------------FILTER INPUT MAIN RESEARCH LOGIC-------------------------------------------------------//
+
+
 /**
  * Compare le terme de recherche avec le nom, la description et les ingrédients d'une recette.
- * @param {Array<Object>} data -le tableau d'objets a filtrer
- * @param {Object} recipe - L'objet recette à comparer.
+ * @param {Array<Object>} data - L'objet array à comparer.
  * @param {string} query - Le terme de recherche de l'utilisateur.
+ * @returns {boolean} - True si une correspondance est trouvée dans le nom, la description ou les ingrédients.
  */
 export function compareInput(data, query) {
-  const filteredRecipes = data.filter((recipe) => compareJSON(recipe, query));
+  const filteredRecipes = [];
+
+  // Parcourir les recettes une par une
+  for (let i = 0; i < data.length; i++) {
+      const recipe = data[i];
+
+      // Vérifier si le terme de recherche est présent dans le nom, la description ou les ingrédients de la recette
+      if (compareJSON(recipe, query)) {
+          filteredRecipes.push(recipe); // Ajouter à la liste des recettes filtrées
+      }
+  }
   return filteredRecipes;
 }
 
 /**
- * Compare le terme de recherche avec le nom, la description et les ingrédients d'une recette.
- * @param {Object} recipe - L'objet recette à comparer.
- * @param {string} query - Le terme de recherche de l'utilisateur.
- * @returns {boolean} - True si une correspondance est trouvée dans le nom, la description ou les ingrédients.
- */
+* Compare le terme de recherche avec le nom, la description et les ingrédients d'une recette.
+* @param {Object} recipe - L'objet recette à comparer.
+* @param {string} query - Le terme de recherche de l'utilisateur.
+* @returns {boolean} - True si une correspondance est trouvée dans le nom, la description ou les ingrédients.
+*/
 export function compareJSON(recipe, query) {
-  // Vérifier si le terme de recherche est présent dans le nom, la description ou les ingrédients de la recette
-  const matchName = recipe.name.toLowerCase().includes(query);
-  const matchDescription = recipe.description.toLowerCase().includes(query);
-  const matchIngredients = recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(query));
-  return matchName || matchDescription || matchIngredients;
+// Vérifier si le terme de recherche est présent dans le nom, la description ou les ingrédients de la recette
+const matchName = recipe.name.toLowerCase().includes(query);
+const matchDescription = recipe.description.toLowerCase().includes(query);
+
+// Vérifier si le terme de recherche est présent dans les ingrédients
+let matchIngredients = false;
+for (let i = 0; i < recipe.ingredients.length; i++) {
+  if (recipe.ingredients[i].ingredient.toLowerCase().includes(query)) {
+    matchIngredients = true;
+    break; // Si un match est trouvé, sortir de la boucle
+  }
+}
+return matchName || matchDescription || matchIngredients;
 }
