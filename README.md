@@ -31,7 +31,7 @@
 
 4. Si tout fonctionne correctement, le navigateur devrait s’ouvrir automatiquement avec le projet.
 Si ce n’est pas le cas :
-Copier l’adresse indiquée par Live Server (par exemple, http://127.0.0.1:5501) dans ton navigateur.
+Copier l’adresse indiquée par Live Server (par exemple, http://127.0.0.1:5501) dans votre navigateur.
 
 
 ## Usage
