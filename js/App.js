@@ -6,7 +6,6 @@ import { displayRecipes } from "./Display/displayRecipes.js";
 import { filterRenderTotal } from "./FilterRender/filterRenderTotal.js";
 import { onClick } from "./utils/Events/onClick.js";
 import { onSearch } from "./utils/Events/onSearch.js";
-import { getFormattedState } from "./utils/states.js";
 
 
 export async function App() {

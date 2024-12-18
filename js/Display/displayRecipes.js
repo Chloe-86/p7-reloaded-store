@@ -5,7 +5,6 @@ import { recipeContainer } from '../utils/domElements.js';
 /**
  * Affiche les recettes dans le conteneur spécifié.
  * @param {Array<Object>} recipes - Liste des recettes à afficher.
- * @param {HTMLElement} recipeContainer - Conteneur HTML pour afficher les recettes.
  */
 export function displayRecipes(recipes) {
   recipeContainer.innerHTML = ''; // Vide le conteneur avant de rajouter les recettes

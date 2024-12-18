@@ -1,11 +1,12 @@
 
 import { addActiveFilterModel, removeActiveFilterModel, findGrandPa } from "../Filter/utils.js";
+import { selectedFiltersUl } from "../domElements.js";
 
 import Store from "../../StateManager/Store.js";
 import { createListItem } from "../../templates/FactoryBtn.js";
 import { filterGeneral } from "../../FilterLogic/filterLogic.js";
 import { handleErrorOrDisplay } from "../../FilterLogic/filterLogic.js";
-const selectedFilters = document.querySelector(".selectedFilters ul");
+
 
 export function handleFilterClick(target, type) {
   if (target.tagName !== "LI") {
@@ -23,16 +24,16 @@ export function handleFilterClick(target, type) {
 
   const dataId = target.getAttribute("data-id");
   addActiveFilterModel(parentSelectedbro, createListItem(parentSelected, selectedItem, dataId, ["li-item"]));
-  addActiveFilterModel(selectedFilters, createListItem(parentSelected, selectedItem, dataId, ["btn-filter"]));
-  selectedFilters.classList.add("active");
+  addActiveFilterModel(selectedFiltersUl, createListItem(parentSelected, selectedItem, dataId, ["btn-filter"]));
+  selectedFiltersUl.classList.add("active");
   removeActiveFilterModel(target, paEltSelectItembro);
 
   // // Mettre à jour les filtres via dispatch
   Store.dispatch({ type: type, payload: selectedItem });
   
-  // const filteredRecipes= filterGeneral('click');
-  // handleErrorOrDisplay(filteredRecipes, 'SET_RECIPES_SELECT', null, 'selectError');
+  //declenche la recherche au clic et charge le tableau de recettes 
   const filteredRecipes = filterGeneral("click");
-      handleErrorOrDisplay(filteredRecipes, "SET_RECIPES_SELECT", null, "selectError");
-      Store.dispatch({type: 'SET_RECIPES_SELECT', payload: filteredRecipes})
+  handleErrorOrDisplay(filteredRecipes, "SET_RECIPES_SELECT", null, "selectError");
+  Store.dispatch({type: 'SET_RECIPES_SELECT', payload: filteredRecipes})
+
 }

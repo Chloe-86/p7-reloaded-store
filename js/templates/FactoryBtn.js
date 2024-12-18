@@ -45,8 +45,6 @@ function createElement(type, options = {}) {
  * @returns {HTMLElement} - L'élément `<li>` configuré avec les classes, attributs et enfants (icône de suppression).
  */
 export function createListItem(parentSelected = null, selectedItem, dataId = null, classes = []) {
-
-  Store.dispatch({ type: "INCREMENT_INDEX" });
   const currentIndex = Store.getState().index;
     // Si parentSelected est null, on ne tente pas d'utiliser parentSelected.id
   const liClasses = parentSelected ? ["li-item", parentSelected.id, ...classes] : ["li-item", "arrayFilter-fs",...classes]; 

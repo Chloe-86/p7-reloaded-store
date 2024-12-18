@@ -11,7 +11,6 @@ export const getData = async () => {
     }
     return await response.json();
   } catch (error) {
-    // On relance l'erreur pour la propager à getRecipes
     throw error;
   }
 };

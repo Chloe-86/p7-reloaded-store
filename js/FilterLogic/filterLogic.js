@@ -58,16 +58,16 @@ export function filterGeneral(type = null, query = null) {
 
   if (type === "click") {
     const enterRecipes = filterConditions("select");
-
     outputRecipes = filterSelected(enterRecipes, arrayFilter);
   }
 
   if (type === "input") {
     let enterRecipes = filterConditions("input");
-
     if (query) {
+      //execute la logique de filtrage
       outputRecipes = compareInput(enterRecipes, query);
     } else {
+      //ne passe pas dans l'execution de la logique de filtrage et renvoi au display les recettes filtres
       outputRecipes = enterRecipes;
     }
   }

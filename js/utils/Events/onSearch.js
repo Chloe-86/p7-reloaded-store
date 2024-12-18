@@ -17,6 +17,7 @@ import { filterGeneral } from "../../FilterLogic/filterLogic.js";
  */
 export function onSearch(input, dataSet = null, filterWrapper = null) {
   input.addEventListener("input", (e) => {
+    Store.dispatch({ type: "SET_SEARCH_INPUT_STATUS", payload: true});
     // const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
     // console.log({
     //   arrayFilter_fs,
@@ -42,8 +43,6 @@ export function onSearch(input, dataSet = null, filterWrapper = null) {
     }
   });
 }
-
-
 
 /**
  * Recherche sur les filtres de type 'select'
@@ -81,6 +80,7 @@ export async function onSearchMainResearch(query) {
   
   // on verifie que la query comporte 3 caracteres ou plus avant de déclencher la recherche de comparaison
   if (query.length >= 3) {
+    
     const filteredRecipes = filterGeneral("input", query);
     handleErrorOrDisplay(filteredRecipes, null, query, 'inputError');
     Store.dispatch({ type: "SET_ARRAYFILTER_FS", payload: query });

@@ -1,19 +1,14 @@
 import { handleFilterClick } from "./handleFilterClick.js";
 import Store from "../../StateManager/Store.js";
-import {
-  selectedFilters,
-  selectedFiltersUl,
-  select,
-} from "../domElements.js";
-import { filterGeneral, filterSelected } from "../../FilterLogic/filterLogic.js";
+import { selectedFilters, selectedFiltersUl, select } from "../domElements.js";
+import { filterGeneral } from "../../FilterLogic/filterLogic.js";
 import { handleErrorOrDisplay } from "../../FilterLogic/filterLogic.js";
 import { getFormattedState } from "../states.js";
-// import { addFilterAnimationEventListeners } from '../filterAnimation.js'
 
 export function onClick() {
   document.addEventListener("click", (e) => {
-    // addFilterAnimationEventListeners(e);
-    const { arrayFilter, arrayFilter_fs, recipes, selectRecipes, filteredRecipes} = getFormattedState();
+    Store.dispatch({ type: "SET_SEARCH_INPUT_STATUS", payload: false });
+    const {recipes} = getFormattedState();
     // console.log({
     //   arrayFilter_fs,
     //   arrayFilter,
@@ -21,7 +16,7 @@ export function onClick() {
     //   selectRecipes,
     //   recipes,
     //  });
-  //  const {recipes} = getFormattedState();
+    //  const {recipes} = getFormattedState();
     //gestion des ajouts du select
     if (select) {
       const target = e.target.closest("LI");
@@ -80,12 +75,11 @@ export function onClick() {
         if (li.getAttribute("data-id") === dataIdEvent) {
           li.remove();
           const updateArrayFilter = li.textContent;
+          selectedFilters.classList.remove("active");
           const filteredRecipes = filterGeneral("click");
           handleErrorOrDisplay(filteredRecipes, "SET_RECIPES_SELECT", null, "selectError");
-          // Store.dispatch({type: 'SET_RECIPES_SELECT', payload: filteredRecipes})
           Store.dispatch({ type: "REMOVE_ARRAYFILTER", payload: updateArrayFilter });
-          Store.dispatch({type: 'SET_RECIPES_SELECT', payload: recipes})
-          selectedFilters.classList.remove("active");
+          Store.dispatch({ type: "SET_RECIPES_SELECT", payload: recipes });
         }
       });
 
@@ -93,8 +87,5 @@ export function onClick() {
         selectedFiltersUl.classList.remove("active");
       }
     }
-
   });
-
-  
 }

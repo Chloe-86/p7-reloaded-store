@@ -10,6 +10,6 @@ export function getFormattedState() {
         filteredRecipes: state.filteredRecipes,
         selectRecipes: state.selectRecipes,
         recipes: state.recipes,
-        arrayFilter_fs_temp: state.arrayFilter_fs_temp
+        searchInputStatus : state.searchInputStatut
     };
 }

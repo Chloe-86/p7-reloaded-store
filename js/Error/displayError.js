@@ -3,7 +3,7 @@ export function displayError (error, container) {
         console.error("Conteneur introuvable !");
         return;
       }
-      // On insère l'erreur dans le conteneur avec une couleur spécifique
+     
       container.innerHTML = `<div class="container">
               <div class="row">
                   <div class="col">
