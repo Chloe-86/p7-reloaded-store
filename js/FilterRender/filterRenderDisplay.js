@@ -7,7 +7,6 @@
 export function filterRenderDisplay(ulElement, dataSet) {
   const currentDisplayedItems = [];
   ulElement.innerHTML = "";
-  //index utile?
   let index = 0;
   dataSet.forEach((item) => {
     const liElt = document.createElement("li");

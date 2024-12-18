@@ -1,13 +1,13 @@
 
-import { addActiveFilterModel, removeActiveFilterModel, findArPa, findGrandPa } from "../Filter/utils.js";
+import { addActiveFilterModel, removeActiveFilterModel, findGrandPa } from "../Filter/utils.js";
 
 import Store from "../../StateManager/Store.js";
-import { filterSelected } from "../../FilterLogic/filterLogic.js";
 import { createListItem } from "../../templates/FactoryBtn.js";
-
+import { filterGeneral } from "../../FilterLogic/filterLogic.js";
+import { handleErrorOrDisplay } from "../../FilterLogic/filterLogic.js";
 const selectedFilters = document.querySelector(".selectedFilters ul");
 
-export function handleFilterClick(target, ulElementWrapper, type) {
+export function handleFilterClick(target, type) {
   if (target.tagName !== "LI") {
     return;
   }
@@ -32,4 +32,7 @@ export function handleFilterClick(target, ulElementWrapper, type) {
   
   // const filteredRecipes= filterGeneral('click');
   // handleErrorOrDisplay(filteredRecipes, 'SET_RECIPES_SELECT', null, 'selectError');
+  const filteredRecipes = filterGeneral("click");
+      handleErrorOrDisplay(filteredRecipes, "SET_RECIPES_SELECT", null, "selectError");
+      Store.dispatch({type: 'SET_RECIPES_SELECT', payload: filteredRecipes})
 }

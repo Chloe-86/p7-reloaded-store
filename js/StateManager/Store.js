@@ -16,8 +16,6 @@ const Store = (() => {
     ingredients: [],
     ustensils: [],
     appliances: [],
-    //statut de la recherche
-    searchInputStatut: false,
     error: "",
     index: 0,
   };
@@ -25,14 +23,13 @@ const Store = (() => {
   // La fonction dispatch centralise toutes les mises à jour d'état
   const dispatch = (action) => {
     switch (action.type) {
+   
       case "INCREMENT_INDEX":
         state = { ...state, index: state.index + 1 };
         break;
-      case "DECREMENT_INDEX":
-        state = { ...state, index: Math.max(0, state.index - 1) };
-        break;
       case "SET_RECIPES":
         state = { ...state, recipes: Object.freeze([...action.payload]) };
+        
         break;
       case "SET_RECIPES_SELECT":
         state = { ...state, selectRecipes: action.payload };
@@ -48,10 +45,6 @@ const Store = (() => {
         break;
       case "SET_ARRAYFILTER_FS":
         state = { ...state, arrayFilter_fs: action.payload };
-
-        break;
-      case "SET_SEARCH_INPUT_STATUS":
-        state = { ...state, searchInputStatut: action.payload };
         break;
       case "REMOVE_ARRAYFILTER":
         state = {
@@ -70,11 +63,11 @@ const Store = (() => {
         break;
       case "SET_ERROR":
         state = { ...state, error: action.payload };
-
         break;
       default:
         console.warn(`Action inconnue : ${action.type}`);
     }
+    console.log(state)
   };
 
   // Permet de récupérer l'état actuel (ou un sous-ensemble spécifique si une clé est donnée)

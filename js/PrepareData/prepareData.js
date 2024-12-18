@@ -1,7 +1,7 @@
 import { getData } from "../services/getData.js";
 import Store from "../StateManager/Store.js";
 import { displayError } from "../Error/displayError.js";
-import { recipeContainer } from "../Utils/domElements.js";
+import { recipeContainer } from "../utils/domElements.js";
 
 export async function getRecipes() {
   try {

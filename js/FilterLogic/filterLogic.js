@@ -54,7 +54,7 @@ export function handleErrorOrDisplay(
  */
 export function filterGeneral(type = null, query = null) {
   let outputRecipes = [];
-  let { arrayFilter, recipes } = getFormattedState();
+  let { arrayFilter } = getFormattedState();
 
   if (type === "click") {
     const enterRecipes = filterConditions("select");
@@ -64,7 +64,7 @@ export function filterGeneral(type = null, query = null) {
 
   if (type === "input") {
     let enterRecipes = filterConditions("input");
- console.log(enterRecipes)
+
     if (query) {
       outputRecipes = compareInput(enterRecipes, query);
     } else {

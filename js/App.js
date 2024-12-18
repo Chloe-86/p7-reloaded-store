@@ -11,6 +11,7 @@ import { getFormattedState } from "./utils/states.js";
 
 export async function App() {
   await getRecipes();
+// Ajout des écouteurs d'événements à l'initialisation
 
   try {
     //appel de getdata et stockage des recettes si valide
